@@ -25,7 +25,7 @@ class Solution {
     
 public:
     struct ListNode {
-        int val=0;
+        int val;
         ListNode *next;
     };
                  
