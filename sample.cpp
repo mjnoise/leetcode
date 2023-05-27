@@ -2,8 +2,8 @@
 using namespace std;
 
 int main(){
-    if(1){
-        cout<<"bleh";
-    }
+    string m="ASDSADFAS";
+    cout<< m[m.length()-1];
+    cout<< endl;
     return 0;
 }
