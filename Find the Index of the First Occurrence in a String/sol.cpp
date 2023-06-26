@@ -7,8 +7,9 @@ public:
         if(needle.length()> haystack.length()){
             return -1;
         }
-        int i=0;
-        while(i<haystack.length() - needle.length()+1){
+        //METHOD 1
+        // int i=0;
+        /*while(i<haystack.length() - needle.length()+1){
             int j=0;
             while( j< needle.length() && haystack[i]==needle[j] ){
                 j++;
@@ -22,11 +23,39 @@ public:
             }
             i++;
         }
-        return -1;
+        return -1;*/
+
+        //METHOD 2
+
+        //PREPROCESSING LPS
+        int prev=0;
+        int needleLength= needle.size();
+        int arr[needleLength];
+        arr[prev]=0;
+        int i=1;
+        while(i< needleLength){
+            if(needle[i] == needle[prev]){
+                arr[i]= ++prev;
+                i++;
+            }else{
+                if(prev==0){
+                    arr[i]= 0;
+                    i++;
+                }else{
+                    prev= arr[prev-1];
+                }
+            }
+        }
+        for(int a :arr){
+            cout<<a<<" ";
+        }
+        return 1;
+
     }
+        
 };
 
 int main(){
     Solution sol;
-    cout<< sol.strStr("butsad","sad");
+    sol.strStr("oniommonion","onion");
 }
